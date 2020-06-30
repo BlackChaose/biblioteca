@@ -1,4 +1,4 @@
-# dictionary (module for laravel 6.8)
+# Biblioteca(module for laravel 6.8)
 
 ### simple CRUD - for fast creating custom 'library of files' ###
 
