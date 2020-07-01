@@ -75,7 +75,7 @@ class BibliotecaController extends Controller
                 $ff->bib_entity_id = $book->id;
                 $ff->file_path = $nf;
                 preg_match_all('/[a-zA-Z0-9]{1,}\.[a-zA-Z0-9]{1,3}$/m', $nf, $arr_filter);
-                //dd($arr_filter[0][0]);
+
                 $file_save_name = $arr_filter[0][0];
 
                 $ff->file_orig_name = $request->file('book_file')->getClientOriginalName();
@@ -158,13 +158,18 @@ class BibliotecaController extends Controller
 
             if (!empty($request->book_file)) {
 
-                $destinationPathFolder = 'uploads/books' . Carbon::now('Europe/Moscow')->isoFormat('Y_M_D__HH_mm');
+                $destinationPathFolder = 'books';
                 $destinationPath = $destinationPathFolder . '_' . $book->id;
-                $request->book_file->move($destinationPath, $request->book_file->getClientOriginalName());
+                $nf = Storage::disk('local')->putFile($destinationPath, $request->file('book_file'));
                 $ff = new AttachedFile();
                 $ff->bib_entity_id = $book->id;
-                $ff->file_path = $destinationPath . '/' . $request->book_file->getClientOriginalName();
-                $ff->file_name = $request->book_file->getClientOriginalname();
+                $ff->file_path = $nf;
+                preg_match_all('/[a-zA-Z0-9]{1,}\.[a-zA-Z0-9]{1,3}$/m', $nf, $arr_filter);
+
+                $file_save_name = $arr_filter[0][0];
+
+                $ff->file_orig_name = $request->file('book_file')->getClientOriginalName();
+                $ff->file_save_name = $file_save_name;
 
                 $attached_file = $book->getRelation('attached_file')->first();
                 if (!empty($attached_file)) {
@@ -226,3 +231,4 @@ class BibliotecaController extends Controller
 
     }
 }
+
