@@ -8,21 +8,21 @@
         <div class="valid-feedback">
             ok!
         </div>
-        {{ Form::textArea('description',null,['class'=>'form-control ', 'rows'=>'3', 'required'=>'required','placeholder'=>'описание']) }}
+        {{ Form::textArea('description',null,['class'=>'form-control ', 'rows'=>'3', 'placeholder'=>'описание']) }}
         <div class="invalid-feedback">
             Добавьте описание
         </div>
         <div class="valid-feedback">
             ok!
         </div>
-        {{ Form::text('lang',null,['class'=>'form-control ', 'required'=>'required', 'placeholder'=>'ES->RU', 'value'=>'ES-RU']) }}
+        {{ Form::text('lang',null,['class'=>'form-control ', 'placeholder'=>'ES->RU', 'value'=>'ES-RU']) }}
         <div class="invalid-feedback">
             Добавьте язык, например испанско-русский - "ES->RU"
         </div>
         <div class="valid-feedback">
             ok!
         </div>
-        {{ Form::text('author',null,['class'=>'form-control ', 'required'=>'required', 'placeholder'=>'Автор', 'value'=>'Автор']) }}
+        {{ Form::text('author',null,['class'=>'form-control ', 'placeholder'=>'Автор', 'value'=>'Автор']) }}
         <div class="invalid-feedback">
             Добавьте имя автора
         </div>
