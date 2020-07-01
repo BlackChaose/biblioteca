@@ -25,7 +25,7 @@
                 <th scope="row">{{$lib->id}}</th>
                 <td>{{$lib->author}}</td>
                 <td>{{$lib->name??'--'}}</td>
-                <td>{{$lib->descripton??'--'}}</td>
+                <td>{{$lib->description??'--'}}</td>
                 <td><a href="{{count($lib->attached_file)>0?route('biblioteca.getfile_view',$lib->attached_file[0]->id):"#"}}" {!!count($lib->attached_file)===0?'class="disabled btn btn-disabled"':'class="btn btn-link"'!!} title="скачать файл"><i class="far fa-file-pdf"></i></a></td>
                 <td><a href="{{count($lib->attached_file)>0?route('biblioteca.getfile_download',$lib->attached_file[0]->id):"#"}}" {!!count($lib->attached_file)===0?'class="disabled btn btn-disabled"':'class="btn btn-link"'!!} title="скачать файл"><i class="fas fa-download"></i></a></td>
                 <td><a href="{{route('biblioteca.show',[$lib->id])}}" title="редактировать"><i class="far fa-edit"></i></a></td>
