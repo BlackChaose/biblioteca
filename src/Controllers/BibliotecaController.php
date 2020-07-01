@@ -86,7 +86,7 @@ class BibliotecaController extends Controller
 
         } catch (\Exception $e) {
             $res = $e->getMessage();
-            dd($e);
+            //dd($e);
             $result_code = 'error';
         }
         $form_type = 'operation_result';
