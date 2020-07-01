@@ -52,9 +52,9 @@ class BibliotecaController extends Controller
         try {
             $data = $request->validate([
                 'name' => 'string|min:3|max:255|required',
-                'description' => 'string|min:3|max:255',
-                'lang' => 'string|min:3|max:255',
-                'author' => 'string|min:3|max:255',
+                'description' => 'string|min:0|max:255',
+                'lang' => 'string|min:0|max:255',
+                'author' => 'string|min:0|max:255',
             ]);
 
             if (empty($data)) {
